@@ -1,6 +1,7 @@
 'use client'
 
 import Avatar from '../general/Avatar'
+import { Rating } from '@mui/material'
 import React from 'react'
 
 const Comment = ({ review }: { review: any }) => {
@@ -10,6 +11,7 @@ const Comment = ({ review }: { review: any }) => {
 			<Avatar image={review?.user?.image} />
 			<div>
 				<p className="font-bold">{review?.user?.name}</p>
+				<Rating name="read-only" value={review?.user?.rating} readOnly />
 				<p>{review?.comment}</p>
 			</div>
 		</div>

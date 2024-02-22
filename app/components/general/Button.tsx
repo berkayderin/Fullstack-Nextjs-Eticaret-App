@@ -6,11 +6,11 @@ interface ButtonProps {
 	onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
 	small?: boolean
 	outline?: boolean
-	// icon?: IconType | undefined
+	icon?: IconType
 	disabled?: boolean
 }
 
-const Button: React.FC<ButtonProps> = ({ text, onClick, small, outline, disabled }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ text, onClick, small, outline, disabled, icon: Icon }: ButtonProps) => {
 	return (
 		<button
 			disabled={disabled}
@@ -19,6 +19,7 @@ const Button: React.FC<ButtonProps> = ({ text, onClick, small, outline, disabled
 				small ? 'text-sm' : 'text-md'
 			} ${outline ? 'border-2 border-black' : ''}`}
 		>
+			{Icon && <Icon />}
 			{text}
 		</button>
 	)
